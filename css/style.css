@@ -2,7 +2,8 @@
     --header-height: 80px;
     --header-color: 84, 0, 162;
     --bg-color: 98, 206, 225;
-    --main-bg-color: 128, 236, 255;
+    /* --main-bg-color: 128, 236, 255; */
+    --main-bg-color: 150, 180, 200;
 }
 
 * {
@@ -62,17 +63,28 @@ ul.ul {
     background-color: greenyellow;
 }
 .todo.notDone > h2 {
-    text-decoration: line-through;/* visualizza il testo del todo sbarrato.  */
-    color: black;
+    text-decoration: line-through 1px solid aqua;/* visualizza il testo del todo sbarrato.  */
+    
+}
+.todo.notDone > h2:hover {
+    text-decoration: underline greenyellow;
+}
+.todo.done > h2:hover {
+    text-decoration: line-through 2px dashed red;
 }
 .todo > i {
     max-width: 20%;
+    display: block;
+    border-radius: 50%;
+}
+.todo > i:hover {
+    background-color: fuchsia;
 }
 
 .todo > h2 {
     max-width: 80%;
     color: blue;
-    font-size: 1.5rem;
+    font-size: 1.23rem;
     cursor: pointer;
     display: flex;
 }
@@ -84,8 +96,7 @@ ul.ul {
 form {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
