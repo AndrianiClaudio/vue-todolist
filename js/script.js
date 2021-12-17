@@ -20,7 +20,7 @@ const todolist = new Vue ({
     data: {
         todos: [ //lista di oggetti 'todo'
             {// Ogni todo sarà un oggetto, formato da due proprietà:
-                text: 'Testo todo 1',//stringa: indica il testo del todo
+                text: 'Testo todo 1Testo todo 1Testo todo 1Testo todo 1',//stringa: indica il testo del todo
                 // done: true//booleano: indica se il todo è stato fatto oppure no
                 done: false
             },
@@ -46,9 +46,14 @@ const todolist = new Vue ({
         },
         buttons: {
             id: 'submit',
-            innerHTML: 'Aggiungi'
+            innerHTML: 'Aggiungi',
+            error1: 'Digita qualcosa!'
         },
-        hover_title: 'Cambia status todo'
+        hover_title: 'Cambia status todo',
+        errorBlank: {
+            text: '',
+            color: ''
+        }
     },
     methods: {
         checkDone(isDone) {
@@ -60,11 +65,16 @@ const todolist = new Vue ({
         addTodo(ev) {
             ev.preventDefault();
             if (this.inputs.addTodo.value.length > 0) {
-                this.todos.push({
+                this.todos.unshift({
                     text: this.inputs.addTodo.value,
                     done: false
                 })
-                this.inputs.addTodo.value  = '' //reset value
+                this.errorBlank.color = 'green-color';
+                this.errorBlank.text = 'todo inserito correttamente';
+                this.inputs.addTodo.value  = ''; //reset value
+            } else {
+                this.errorBlank.color = 'red-color';
+                this.errorBlank.text = 'Inserisci un testo per il todo';
             }
         },
         changeDoneValue_byIndex(index) {

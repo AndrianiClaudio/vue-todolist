@@ -20,7 +20,7 @@
     <!-- container (Uso di Vue) -->
     <div id="container">
         <!-- lista generata tramite dati passati da Vue-->
-        <ul>
+        <ul class="ul">
             <!-- li generate tante quanto sono gli elementi dell'array todos dell'oggetto Vue -->
             <li v-for = '(todo,index) in todos' :class= 'checkDone(todo.done)'> 
                 <!-- checkDone => Se done = true, visualizza il testo del todo sbarrato. -->
@@ -34,7 +34,13 @@
             <input v-model= 'inputs.addTodo.value' type="text" :name='inputs.addTodo.id' :id="inputs.addTodo.id" :placeholder = 'inputs.addTodo.placeholder'>
             <button :id = 'buttons.id'
                 @click = 'addTodo'
-                @keyup.enter = 'addTodo'>{{buttons.innerHTML}}</button>
+                @keyup.enter = 'addTodo'
+                :class= '(inputs.addTodo.value.length == 0) ? "blank" : ""'
+                :title = '(inputs.addTodo.value.length == 0) ? buttons.error1 : ""'>{{buttons.innerHTML}}
+            </button>
+            <div class="errorBlank">
+                <strong :class="errorBlank.color">{{errorBlank.text}}</strong>
+            </div>
         </form>
     </div>
     <script src="js/script.js"></script>

@@ -1,22 +1,62 @@
+:root {
+    --header-height: 80px;
+    --header-color: 84, 0, 162;
+    --bg-color: 98, 206, 225;
+    --main-bg-color: 128, 236, 255;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0.3rem 1rem;
+}
+html {
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif
+}
+/* background */
+body {
+    background-color: rgb(var(--main-bg-color));
+    min-width: 550px;
+}
+#header,#container {
+    background-color: rgb(var(--bg-color),2);
+}
+
+/* header */
+#header {
+    text-align: center;
+    height: var(--header-height);
+
+    color: rgb(var(--header-color));
+}
+#header > h1 {
+    line-height: var(--header-height);
+    font-size: 2rem;
 }
 
 /* classi todos */
+ul.ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 .todo {
     /* valori test */
-    background-color: tomato;
+    background-color: rgba(255, 99, 71, 0.87);
     border: 2px solid blue;
-    outline: 2px solid yellow;
+    outline: 2px solid blue;
     /* ---FINE test--- */
-
-    /* gestione nome todo - x elimina todo */
     display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    text-align: center;
     align-items: center;
-    gap: 1.5rem;
-    /* ---FINE--- */
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 .todo.done {
     /* valori test */
@@ -28,15 +68,55 @@
     color: black;
     line-height: 2rem;
 }
-
+.todo > i {
+    max-width: 20%;
+}
 
 .todo > h2 {
+    max-width: 80%;
     /* valori test */
     color: blue;
     /* ---FINE test--- */
-    cursor: pointer
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    /* overflow: auto; */
 }
 .todo .delete_item {
     cursor: pointer;
 }
 /*  --- FINE classi todos */
+form > *{
+    font-size: 1rem;
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#submit{
+    color: white;
+    background-color: blue;
+    border: 2px solid greenyellow;
+    outline: 1px solid blue;
+}
+#submit:hover {
+    cursor: pointer;
+    color: black;
+    background-color: yellow;
+    border: 2px solid blue;
+    outline: 1px solid yellow;
+}
+#submit.blank:hover {
+    background-color: tomato;
+    outline: 1px solid tomato;
+    
+}
+.red-color {
+    color: red;
+}
+.green-color {
+    color: green;
+}
