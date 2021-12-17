@@ -14,25 +14,28 @@ html {
     font-size: 100%;
     font-family: Arial, Helvetica, sans-serif
 }
-/* background */
 body {
     background-color: rgb(var(--main-bg-color));
     min-width: 550px;
+    min-height: (10rem);
 }
+/* background */
 #header,#container {
     background-color: rgb(var(--bg-color),2);
+    border :3px solid blue;
+    border-radius: 1rem;
 }
 
 /* header */
 #header {
-    text-align: center;
+    display: flex;
     height: var(--header-height);
-
     color: rgb(var(--header-color));
+    align-items: center;
+    justify-content: center;
 }
 #header > h1 {
-    line-height: var(--header-height);
-    font-size: 2rem;
+    font-size: 2.3rem;
 }
 
 /* classi todos */
@@ -40,33 +43,27 @@ ul.ul {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 0.4rem;
 }
 .todo {
-    /* valori test */
+    border-radius: 1rem;
     background-color: rgba(255, 99, 71, 0.87);
     border: 2px solid blue;
     outline: 2px solid blue;
-    /* ---FINE test--- */
     display: flex;
     width: 80%;
     margin: auto;
     justify-content: space-between;
-    text-align: center;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
-    flex-basis: 0;
-    flex-grow: 1;
 }
 .todo.done {
-    /* valori test */
     background-color: greenyellow;
-    /* ---FINE test--- */
 }
 .todo.notDone > h2 {
     text-decoration: line-through;/* visualizza il testo del todo sbarrato.  */
     color: black;
-    line-height: 2rem;
 }
 .todo > i {
     max-width: 20%;
@@ -74,33 +71,37 @@ ul.ul {
 
 .todo > h2 {
     max-width: 80%;
-    /* valori test */
     color: blue;
-    /* ---FINE test--- */
     font-size: 1.5rem;
     cursor: pointer;
     display: flex;
-    /* overflow: auto; */
 }
 .todo .delete_item {
     cursor: pointer;
 }
-/*  --- FINE classi todos */
-form > *{
-    font-size: 1rem;
-}
+
+/* form aggiunta nuova todo */
 form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 0.5rem;
+}
+form > *{
+    font-size: 1rem;
+}
+input[type = 'text'] {
+    color: blue;
 }
 #submit{
     color: white;
     background-color: blue;
     border: 2px solid greenyellow;
     outline: 1px solid blue;
+    border-radius: 1rem;
+    padding: 0.3rem 0.8rem;
 }
 #submit:hover {
     cursor: pointer;
@@ -114,9 +115,14 @@ form {
     outline: 1px solid tomato;
     
 }
+.errorBlank {
+    width: 100%;
+    text-align: center;
+}
+
 .red-color {
-    color: red;
+    color :red;
 }
 .green-color {
-    color: green;
+    color :green;
 }

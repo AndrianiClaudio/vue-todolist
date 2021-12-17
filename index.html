@@ -18,16 +18,16 @@
         <!-- altre possibili informazioni come data etc.. -->
     </header>
     <!-- container (Uso di Vue) -->
-    <div id="container">
+    <div id="container" @mouseleave= 'clearError'>
         <!-- lista generata tramite dati passati da Vue-->
         <ul class="ul">
             <!-- li generate tante quanto sono gli elementi dell'array todos dell'oggetto Vue -->
             <li v-for = '(todo,index) in todos' :class= 'checkDone(todo.done)'> 
                 <!-- checkDone => Se done = true, visualizza il testo del todo sbarrato. -->
                 <h2 :title= 'hover_title'
-                    @click = 'changeDoneValue_byIndex(index)'> {{todo.text}}</h2>
+                    @click = '(changeDoneValue_byIndex(index),clearError())'> {{todo.text}}</h2>
                 <i :class = 'icons.delete + " delete_item"'
-                    @click = 'deleteItem_byIndex(index)'></i>
+                    @click = '(deleteItem_byIndex(index),clearError())'></i>
             </li>
         </ul>
         <form action="#">
@@ -39,7 +39,8 @@
                 :title = '(inputs.addTodo.value.length == 0) ? buttons.error1 : ""'>{{buttons.innerHTML}}
             </button>
             <div class="errorBlank">
-                <strong :class="errorBlank.color">{{errorBlank.text}}</strong>
+                <strong :class="errorBlank.color"
+                v-show= 'errorBlank.show'>{{errorBlank.text}}</strong>
             </div>
         </form>
     </div>

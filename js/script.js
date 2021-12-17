@@ -51,6 +51,7 @@ const todolist = new Vue ({
         },
         hover_title: 'Cambia status todo',
         errorBlank: {
+            show: false,
             text: '',
             color: ''
         }
@@ -64,6 +65,7 @@ const todolist = new Vue ({
         },
         addTodo(ev) {
             ev.preventDefault();
+            this.errorBlank.show = true;
             if (this.inputs.addTodo.value.length > 0) {
                 this.todos.unshift({
                     text: this.inputs.addTodo.value,
@@ -79,6 +81,10 @@ const todolist = new Vue ({
         },
         changeDoneValue_byIndex(index) {
             this.todos[index].done = !this.todos[index].done
+        },
+        clearError() {
+            this.errorBlank.text = '';
+            this.errorBlank.show = false;
         }
     }
 })
