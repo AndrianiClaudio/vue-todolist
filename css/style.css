@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* classi todos */
+.todo {
+    /* valori test */
+    background-color: greenyellow;
+    border: 2px solid blue;
+    outline: 2px solid yellow;
+    /* ---FINE test--- */
+}
+.todo > h2 {
+    /* valori test */
+    color: blue;
+    /* ---FINE test--- */
+}
+.todo.done {
+    text-decoration: underline;/* visualizza il testo del todo sbarrato.  */
+}
+/*  --- FINE classi todos */
