@@ -29,7 +29,19 @@ const todolist = new Vue ({
             }
         ],
         icons: {
-            del_item: "fas fa-times" // x per rimuovere todo dalla lista
+                delete: "fas fa-times", // x per rimuovere todo dalla lista
+        },
+        inputs: {
+            addTodo: {
+                id: 'addTodo',
+                type: 'text',
+                placeholder: 'Inserisci un nuovo Todo',
+                value: ''
+            }
+        },
+        buttons: {
+            id: 'submit',
+            innerHTML: 'Aggiungi'
         }
     },
     methods: {
@@ -37,8 +49,18 @@ const todolist = new Vue ({
             return (isDone) ? 'todo done' : 'todo notDone'
         },
         deleteItem_byIndex(index) {
-            console.log(index);
             this.todos.splice(index,1)
+        },
+        addTodo(ev) {
+            ev.preventDefault();
+            // console.log(this.inputs.addTodo.value);
+            if (this.inputs.addTodo.value.length > 0) {
+                this.todos.push({
+                    text: this.inputs.addTodo.value,
+                    done: false
+                })   
+            }
         }
     }
 })
+
