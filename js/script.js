@@ -68,9 +68,7 @@ const todolist = new Vue ({
             }
         },
         changeDoneValue_byIndex(index) {
-            // console.log(index);
             this.todos[index].done = !this.todos[index].done
-            // this.done = !this.done;
         }
     }
 })
