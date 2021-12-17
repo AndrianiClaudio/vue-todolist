@@ -9,7 +9,12 @@
 // Visualizzare a fianco ad ogni item ha una “x”: cliccando su di essa, il todo viene rimosso dalla lista.
 // MILESTONE 3
 // Predisporre un campo di input testuale e un pulsante “aggiungi”: cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
-
+const header = new Vue({
+    el: '#header',
+    data: {
+        title: 'To-Do List'
+    }
+})
 const todolist = new Vue ({
     el: '#container',
     data: {
@@ -42,7 +47,8 @@ const todolist = new Vue ({
         buttons: {
             id: 'submit',
             innerHTML: 'Aggiungi'
-        }
+        },
+        hover_title: 'Cambia status todo'
     },
     methods: {
         checkDone(isDone) {
@@ -53,7 +59,6 @@ const todolist = new Vue ({
         },
         addTodo(ev) {
             ev.preventDefault();
-            // console.log(this.inputs.addTodo.value);
             if (this.inputs.addTodo.value.length > 0) {
                 this.todos.push({
                     text: this.inputs.addTodo.value,
@@ -61,6 +66,11 @@ const todolist = new Vue ({
                 })
                 this.inputs.addTodo.value  = '' //reset value
             }
+        },
+        changeDoneValue_byIndex(index) {
+            // console.log(index);
+            this.todos[index].done = !this.todos[index].done
+            // this.done = !this.done;
         }
     }
 })

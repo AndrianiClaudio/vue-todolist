@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <header id = 'header'>
         <!-- Titolo della pagina -->
-        <h1>To-Do List</h1>
+        <h1> {{title}}</h1>
         <!-- altre possibili informazioni come data etc.. -->
     </header>
     <!-- container (Uso di Vue) -->
@@ -24,7 +24,8 @@
             <!-- li generate tante quanto sono gli elementi dell'array todos dell'oggetto Vue -->
             <li v-for = '(todo,index) in todos' :class= 'checkDone(todo.done)'> 
                 <!-- checkDone => Se done = true, visualizza il testo del todo sbarrato. -->
-                <h2> {{todo.text}}</h2>
+                <h2 :title= 'hover_title'
+                    @click = 'changeDoneValue_byIndex(index)'> {{todo.text}}</h2>
                 <i :class = 'icons.delete + " delete_item"'
                     @click = 'deleteItem_byIndex(index)'></i>
             </li>

@@ -34,6 +34,7 @@
     /* valori test */
     color: blue;
     /* ---FINE test--- */
+    cursor: pointer
 }
 .todo .delete_item {
     cursor: pointer;
