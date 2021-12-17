@@ -7,7 +7,7 @@
 /* classi todos */
 .todo {
     /* valori test */
-    background-color: greenyellow;
+    background-color: tomato;
     border: 2px solid blue;
     outline: 2px solid yellow;
     /* ---FINE test--- */
@@ -18,6 +18,13 @@
     /* ---FINE test--- */
 }
 .todo.done {
-    text-decoration: underline;/* visualizza il testo del todo sbarrato.  */
+    /* valori test */
+    background-color: greenyellow;
+    /* ---FINE test--- */
+}
+.todo.notDone > h2 {
+    text-decoration: line-through;/* visualizza il testo del todo sbarrato.  */
+    color: black;
+    line-height: 2rem;
 }
 /*  --- FINE classi todos */

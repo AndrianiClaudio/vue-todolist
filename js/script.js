@@ -22,21 +22,23 @@ const todolist = new Vue ({
         todos: [ //lista di oggetti 'todo'
             {// Ogni todo sarà un oggetto, formato da due proprietà:
                 text: 'Testo todo 1',//stringa: indica il testo del todo
-                done: 'true'//booleano: indica se il todo è stato fatto oppure no
+                // done: true//booleano: indica se il todo è stato fatto oppure no
+                done: false
             },
             {
                 text: 'Testo todo 2',
-                done: 'true'
+                done: true
             },
             {
                 text: 'Testo todo 3',
-                done: 'false'
+                done: false
             }
         ]
     },
     methods: {
-        checkTodo() {
-            console.log('in checkTodo()');
+        checkDone(done) {
+            console.log(done);
+            return (done) ? 'todo done' : 'todo notDone'
         }
     }
 })

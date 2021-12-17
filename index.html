@@ -19,11 +19,9 @@
         <!-- lista generata tramite dati passati da Vue-->
         <ul>
             <!-- li generate tante quanto sono gli elementi dell'array todos dell'oggetto Vue -->
-            <!--Inizialmente inseriamo staticamente la classe dopo, poi si vedrá in base alle necessita -->
-            <li v-for = 'todo in todos' class = 'todo + checkTodo()'> 
+            <li v-for = 'todo in todos' :class= 'checkDone(todo.done)'> 
                 <!-- Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato. -->
                 <h2> {{todo.text}}</h2>
-
             </li>
         </ul>
     </div>
