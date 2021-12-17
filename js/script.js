@@ -58,7 +58,8 @@ const todolist = new Vue ({
                 this.todos.push({
                     text: this.inputs.addTodo.value,
                     done: false
-                })   
+                })
+                this.inputs.addTodo.value  = '' //reset value
             }
         }
     }

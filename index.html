@@ -35,7 +35,8 @@
         <form action="#">
             <input v-model= 'inputs.addTodo.value' type="text" :name='inputs.addTodo.id' :id="inputs.addTodo.id" :placeholder = 'inputs.addTodo.placeholder'>
             <button :id = 'buttons.id'
-                @click = 'addTodo'>{{buttons.innerHTML}}</button>
+                @click = 'addTodo'
+                @keyup.enter = 'addTodo'>{{buttons.innerHTML}}</button>
         </form>
     </div>
     <script src="js/script.js"></script>
