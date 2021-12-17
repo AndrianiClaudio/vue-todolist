@@ -11,11 +11,12 @@
     border: 2px solid blue;
     outline: 2px solid yellow;
     /* ---FINE test--- */
-}
-.todo > h2 {
-    /* valori test */
-    color: blue;
-    /* ---FINE test--- */
+
+    /* gestione nome todo - x elimina todo */
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* ---FINE--- */
 }
 .todo.done {
     /* valori test */
@@ -26,5 +27,15 @@
     text-decoration: line-through;/* visualizza il testo del todo sbarrato.  */
     color: black;
     line-height: 2rem;
+}
+
+
+.todo > h2 {
+    /* valori test */
+    color: blue;
+    /* ---FINE test--- */
+}
+.todo .delete_item {
+    cursor: pointer;
 }
 /*  --- FINE classi todos */

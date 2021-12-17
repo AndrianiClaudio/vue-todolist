@@ -10,12 +10,6 @@
 // MILESTONE 3
 // Predisporre un campo di input testuale e un pulsante “aggiungi”: cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
 
-// MILESTONE 1
-// Stampare all’interno di una lista, un item per ogni todo.
-
-//ho bisogno di una lista... ciclare per ogni todo presente
-
-// Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
 const todolist = new Vue ({
     el: '#container',
     data: {
@@ -33,12 +27,18 @@ const todolist = new Vue ({
                 text: 'Testo todo 3',
                 done: false
             }
-        ]
+        ],
+        icons: {
+            del_item: "fas fa-times" // x per rimuovere todo dalla lista
+        }
     },
     methods: {
-        checkDone(done) {
-            console.log(done);
-            return (done) ? 'todo done' : 'todo notDone'
+        checkDone(isDone) {
+            return (isDone) ? 'todo done' : 'todo notDone'
+        },
+        deleteItem_byIndex(index) {
+            console.log(index);
+            this.todos.splice(index,1)
         }
     }
 })
